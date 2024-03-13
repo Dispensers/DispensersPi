@@ -53,7 +53,7 @@ let punterPuzzleSpec = {
 	solutionDispenseSequence: [3, 4, 2, 4, 1, 3, 1]
 };
 */
-
+/*
 let punterPuzzleSpec = {
 	number: 14,
 	solveBy: "12 Mar",
@@ -63,18 +63,18 @@ let punterPuzzleSpec = {
 	solutionExpression: "81-196/7",
 	solutionDispenseSequence: [3, 1, 3, 3, 3, 1, 1, 2]
 };
+*/
 
-/*
 let punterPuzzleSpec = {
 	number: 22,
 	solveBy: "19 Mar",
 	dispenserSpec: [undefined, "1", "2+", "3", "4-", "5"],
 	targetSpec: "-28",
-	hintSpec: {numDots: 1, symbol:"9", isHere: false},
+	hintSpec: {numDots: 5, symbol:"2", isHere: true},
 	solutionExpression: "1-53+24",
 	solutionDispenseSequence: [1, 4, 5, 3, 2, 2, 4]
 };
-*/
+
 /*
 let punterPuzzleSpec = {
 	number: 16,
