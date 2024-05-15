@@ -6,7 +6,8 @@ body {
 
 #infoWall {
 	position:absolute;
-	height:535em;
+/*	height:535em; */
+	height:536em;
 	width:59em;
 	grid-template-rows:
 		[riw-s riwUkraineFlag-s]
@@ -32,7 +33,8 @@ body {
 		[riwTCInstructions-1-e riwTCInstructions-2-s]
 		12fr
 		[riwTCInstructions-2-e riwTCInstructions-3-s]
-		5fr
+/*		5fr */
+		6fr
 		[riwTCInstructions-3-e riwTCInstructions-4-s]
 		12fr
 		[riwTCInstructions-4-e riwTCInstructions-5-s]
