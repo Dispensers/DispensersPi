@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Dispensers Omega</title>
+		<title>Dispensers Pi</title>
 		<link id="styling" type="text/css" rel="stylesheet" href="css21.css" media="screen">
 		<script defer src="puzzleSpecs.js"></script>
 		<script defer src="js21.js"></script>
@@ -24,15 +24,22 @@
 
 			<p id="iwTTInstructions" class="InfoTopicTitle"><strong>Instructions</strong></p>
 			<button id="iwTCInstructions-1" type="button" class="InfoTopicContent Instructions">
-				<strong>Build a ring in which NO tile has the same colour as either of its neighbours.</strong>
+				<strong>Build an expression which evaluates to the <span id="targetNumber">target number</span>.</strong>
 			</button>			
-			<button id="iwTCInstructions-2" type="button" class="InfoTopicContent Instructions Italic">
-				Dispense a tile; put it in ring position 1. Dispense another tile; put it in ring position 2. Keep going until the ring is complete.
-			</button>
+			<button id="iwTCInstructions-2" type="button" class="InfoTopicContent Instructions">
+				Standard precedence rules apply:
+				<br>
+				1 &plus; 2&thinsp;&times;&thinsp;3 &minus; 8&thinsp;&divide;&thinsp;4 &equals; 5
+				<br>
+				12&thinsp;&divide;&thinsp;3&thinsp;&times;&thinsp;4 &equals; 16
+			</button>			
 			<button id="iwTCInstructions-3" type="button" class="InfoTopicContent Instructions">
-				<span class="TakeNote">Some tiles may be left in the dispensers.</span>
+				Leading zeros are not permitted.
 			</button>			
 			<button id="iwTCInstructions-4" type="button" class="InfoTopicContent Instructions Italic">
+				Dispense a digit or a sign; add it to the line. Repeat until the dispensers are empty. Always build from left to right.
+			</button>
+			<button id="iwTCInstructions-5" type="button" class="InfoTopicContent Instructions Italic">
 				Best to watch the <strong>demonstration below</strong>.
 			</button>
 			
@@ -49,8 +56,8 @@
 			<button id="iwTCDispensersLambda" type="button" class="InfoTopicContent InfoOtherPuzzles1">
 				<a href="https://dispensers-lambda.vercel.app">https://dispensers-lambda.vercel.app</a>
 			</button>
-			<button id="iwTCDispensersPi" type="button" class="InfoTopicContent InfoOtherPuzzles1">
-				<a href="https://dispensers-pi.vercel.app">https://dispensers-pi.vercel.app</a>
+			<button id="iwTCDispensersOmega" type="button" class="InfoTopicContent InfoOtherPuzzles1">
+				<a href="https://dispensers-omega.vercel.app">https://dispensers-omega.vercel.app</a>
 			</button>
 			<button id="iwTCLadderet" type="button" class="InfoTopicContent InfoOtherPuzzles1">
 				<a href="https://ladderet.vercel.app">https://ladderet.vercel.app</a>
@@ -75,7 +82,7 @@
 				<br>
 				<br>
 				Two screenshots:
-			</button>
+				</button>
 			<img id="iwTCLazyDog-2" src="lazyDog1.png" alt="Screenshot"/>
 			<img id="iwTCLazyDog-3" src="lazyDog2.png" alt="Screenshot"/>
 			<button id="iwTCLazyDog-4" type="button" class="InfoTopicContent">
@@ -117,64 +124,35 @@
 
 				<img id="iwdCtrlDispense-3" class="CtrlDispense" src="buttonDispense.svg" alt="Dispense"/>
 				<img id="iwdSpotDispense-3" class="SpotW10H8D8" src="spotW10H8D8.svg" alt="Spot"/>
-			
+
+				<img id="iwdCtrlDispense-4" class="CtrlDispense" src="buttonDispense.svg" alt="Dispense"/>
+				<img id="iwdSpotDispense-4" class="SpotW10H8D8" src="spotW10H8D8.svg" alt="Spot"/>
+
 				<div id="iwdPanel">
 					<div id="iwdpdContainer-1" class="DispensersContainer"></div>
 					<div id="iwdpdContainer-2" class="DispensersContainer"></div>
 					<div id="iwdpdContainer-3" class="DispensersContainer"></div>
+					<div id="iwdpdContainer-4" class="DispensersContainer"></div>
+					
+					<img id="iwdpdBorder-1" class="DispensersBorder2" src="dispenserBorder2.svg" alt="Border"/>
+					<img id="iwdpdBorder-2" class="DispensersBorder2" src="dispenserBorder2.svg" alt="Border"/>
+					<img id="iwdpdBorder-3" class="DispensersBorder1" src="dispenserBorder1.svg" alt="Border"/>
+					<img id="iwdpdBorder-4" class="DispensersBorder2" src="dispenserBorder2.svg" alt="Border"/>
 
-					<img id="iwdpdTile-11"  class="DispensersTile" src="tileBlack.svg" alt="blac"/>
-					<img id="iwdpdTile-12"  class="DispensersTile" src="tileBlack.svg" alt="blac"/>
-					<img id="iwdpdTile-13"  class="DispensersTile" src="tileBlack.svg" alt="blac"/>
-					<img id="iwdpdTile-14"  class="DispensersTile" src="tileBlack.svg" alt="blac"/>
-					<img id="iwdpdTile-21"  class="DispensersTile" src="tileBlack.svg" alt="blac"/>
-					<img id="iwdpdTile-22"  class="DispensersTile" src="tileBlack.svg" alt="blac"/>
-					<img id="iwdpdTile-23"  class="DispensersTile" src="tileBlack.svg" alt="blac"/>
-					<img id="iwdpdTile-24"  class="DispensersTile" src="tileBlack.svg" alt="blac"/>
-					<img id="iwdpdTile-25"  class="DispensersTile" src="tileBlack.svg" alt="blac"/>
-					<img id="iwdpdTile-31"  class="DispensersTile" src="tileBlack.svg" alt="blac"/>
-
-					<img id="iwdpdCosmetic" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
-
-					<div id="iwdpRing">
-						<svg width="100%" height="100%" viewbox="0 0 1000 1000" preserveAspectRatio="none">
-							<circle cx="500" cy="500" r="272" stroke="black" stroke-width="3" fill="transparent"/>
-							<circle cx="500" cy="500" r="500" stroke="black" stroke-width="3" fill="transparent"/>
-
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(40 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(80 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(120 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(160 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(200 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(240 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(280 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(320 500 500)"/>
-
-							<defs>
-								<clipPath id="iwdprKeep-40"> <path d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" transform="rotate(50 500 500)"/> </clipPath>
-							</defs>
-							<path id="iwdprSegment-1" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#iwdprKeep-40)" transform="rotate(-50 500 500)"/>
-							<path id="iwdprSegment-2" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#iwdprKeep-40)" transform="rotate(-10 500 500)"/>
-							<path id="iwdprSegment-3" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#iwdprKeep-40)" transform="rotate(30 500 500)"/>
-							<path id="iwdprSegment-4" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#iwdprKeep-40)" transform="rotate(70 500 500)"/>
-							<path id="iwdprSegment-5" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#iwdprKeep-40)" transform="rotate(110 500 500)"/>
-							<path id="iwdprSegment-6" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#iwdprKeep-40)" transform="rotate(150 500 500)"/>
-							<path id="iwdprSegment-7" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#iwdprKeep-40)" transform="rotate(190 500 500)"/>
-							<path id="iwdprSegment-8" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#iwdprKeep-40)" transform="rotate(230 500 500)"/>
-							<path id="iwdprSegment-9" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#iwdprKeep-40)" transform="rotate(270 500 500)"/>
-
-							<text id="iwdprDigit-1" x="578" y="203" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">1</text>
-							<text id="iwdprDigit-2" x="780" y="362" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">2</text>
-							<text id="iwdprDigit-3" x="838" y="629" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">3</text>
-							<text id="iwdprDigit-4" x="695" y="853" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">4</text>
-							<text id="iwdprDigit-5" x="448" y="948" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">5</text>
-							<text id="iwdprDigit-6" x="203" y="860" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">6</text>
-							<text id="iwdprDigit-7" x="72" y="631" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">7</text>
-							<text id="iwdprDigit-8" x="117" y="369" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">8</text>
-							<text id="iwdprDigit-9" x="322" y="200" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">9</text>
-						</svg>
-					</div>		
+					<button id="iwdpdItem-11" type="button" class="DispensersItem"><code><strong>1</strong></code></button>
+					<button id="iwdpdItem-12" type="button" class="DispensersItem"><code><strong>6</strong></code></button>
+					<button id="iwdpdItem-21" type="button" class="DispensersItem"><code><strong>6</strong></code></button>
+					<button id="iwdpdItem-22" type="button" class="DispensersItem"><code><strong>5</strong></code></button>
+					<button id="iwdpdItem-31" type="button" class="DispensersItem"><code><strong>&minus;</strong></code></button>
+					<button id="iwdpdItem-41" type="button" class="DispensersItem"><code><strong>&times;</strong></code></button>
+					<button id="iwdpdItem-42" type="button" class="DispensersItem"><code><strong>4</strong></code></button>
+					
+					<div id="iwdpExpressionBackground-7" class="ExpressionBackground"></div>
+					<button id="iwdpExpressionForeground-7" type="button" class="ExpressionForeground">99</button>
+					<button id="iwdpExpressionOverstrike-7" type="button" class="ExpressionForeground">99</button>
+						
+					<button id="iwdpTargetBackground-2" type="button" class="TargetBackground">99</button>
+					<button id="iwdpTargetForeground-2" type="button" class="TargetForeground">99</button>
 				</div>
 			</div>	
 		</div>
@@ -192,7 +170,7 @@
 				[rmwDoor-e rmw-e];"
 		>
 			<button id="mwNameBackground" type="button" class="WallNameBackground">&InvisibleTimes;</button>
-			<button id="mwNameForeground" type="button" class="WallNameForeground MainWallName"><strong>Dispensers<sup>&omega;</sup></strong></button>
+			<button id="mwNameForeground" type="button" class="WallNameForeground MainWallName"><strong>Dispensers<sup>&pi;</sup></strong></button>
 
 			<button id="mwCrossTick" type="button" class="CrossTick"><strong>&check;</strong></button>
 			
@@ -230,13 +208,39 @@
 
 				<img id="mwdCtrlDispense-21" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
 				<img id="mwdCtrlDispense-22" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
+
+				<img id="mwdCtrlDispense-21Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+				<img id="mwdCtrlDispense-22Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+
 				<img id="mwdCtrlDispense-31" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
 				<img id="mwdCtrlDispense-32" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
 				<img id="mwdCtrlDispense-33" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
+
+				<img id="mwdCtrlDispense-31Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+				<img id="mwdCtrlDispense-32Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+				<img id="mwdCtrlDispense-33Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+
 				<img id="mwdCtrlDispense-41" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
 				<img id="mwdCtrlDispense-42" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
 				<img id="mwdCtrlDispense-43" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
 				<img id="mwdCtrlDispense-44" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
+
+				<img id="mwdCtrlDispense-41Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+				<img id="mwdCtrlDispense-42Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+				<img id="mwdCtrlDispense-43Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+				<img id="mwdCtrlDispense-44Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+
+				<img id="mwdCtrlDispense-51" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
+				<img id="mwdCtrlDispense-52" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
+				<img id="mwdCtrlDispense-53" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
+				<img id="mwdCtrlDispense-54" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
+				<img id="mwdCtrlDispense-55" class="CtrlDispense NoShow" src="buttonDispense.svg" alt="Dispense"/>
+
+				<img id="mwdCtrlDispense-51Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+				<img id="mwdCtrlDispense-52Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+				<img id="mwdCtrlDispense-53Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+				<img id="mwdCtrlDispense-54Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
+				<img id="mwdCtrlDispense-55Flasher" class="CtrlDispense NoShow" src="buttonDispenseFlasher.svg" alt="Flasher"/>
 				
 				<img id="mwdCtrlUndispense" class="CtrlUndispense" src="buttonUndispense.svg" alt="Back"/>
 
@@ -248,51 +252,113 @@
 						[rmwdpDispensers-hn-s]
 						999fr
 						[rmwdpDispensers-hn-e]
-						3fr
-						[rmwdpRing-s]
-						21fr
-						[rmwdpRing-e]
-						3fr
+						4fr
+						[rmwdpExpressionForeground-s]
+						1fr
+						[rmwdpExpressionBackground-s]
+						7fr
+						[rmwdpExpressionBackground-e]
+						1fr
+						[rmwdpExpressionForeground-e]
+						1fr
+						[rmwdpTargetForeground-s]
+						1fr
+						[rmwdpTargetBackground-s]
+						8fr
+						[rmwdpTargetBackground-e]
+						1fr
+						[rmwdpTargetForeground-e]
+						2fr
 						[rmwdp-e];"
 				>
-					<div id="mwdpRing">
-						<svg width="100%" height="100%" viewbox="0 0 1000 1000" preserveAspectRatio="none">
-							<circle cx="500" cy="500" r="272" stroke="black" stroke-width="3" fill="transparent"/>
-							<circle cx="500" cy="500" r="500" stroke="black" stroke-width="3" fill="transparent"/>
 
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(40 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(80 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(120 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(160 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(200 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(240 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(280 500 500)"/>
-							<line x1="500" y1="228" x2="500" y2="0" stroke="black" stroke-width="3" transform="rotate(320 500 500)"/>
+					<div id="mwdpExpressionBackground-7" class="ExpressionBackground NoShow"></div>
+					<button id="mwdpExpressionForeground-7" type="button" class="ExpressionForeground NoShow">999</button>
+					<button id="mwdpExpressionOverstrike-7" type="button" class="ExpressionForeground NoShow">999</button>
 
-							<defs>
-								<clipPath id="mwdprkeep-40"> <path d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" transform="rotate(50 500 500)"/> </clipPath>
-							</defs>
-							<path id="mwdprSegment-1" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#mwdprkeep-40)" transform="rotate(-50 500 500)"/>
-							<path id="mwdprSegment-2" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#mwdprkeep-40)" transform="rotate(-10 500 500)"/>
-							<path id="mwdprSegment-3" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#mwdprkeep-40)" transform="rotate(30 500 500)"/>
-							<path id="mwdprSegment-4" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#mwdprkeep-40)" transform="rotate(70 500 500)"/>
-							<path id="mwdprSegment-5" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#mwdprkeep-40)" transform="rotate(110 500 500)"/>
-							<path id="mwdprSegment-6" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#mwdprkeep-40)" transform="rotate(150 500 500)"/>
-							<path id="mwdprSegment-7" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#mwdprkeep-40)" transform="rotate(190 500 500)"/>
-							<path id="mwdprSegment-8" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#mwdprkeep-40)" transform="rotate(230 500 500)"/>
-							<path id="mwdprSegment-9" class="RingSegment" d="M500 228 L500 0 A500 500 0 0 1 1000 500 L772 500 A272 272 0 0 0 500 228" clip-path="url(#mwdprkeep-40)" transform="rotate(270 500 500)"/>
+					<div id="mwdpExpressionBackground-8" class="ExpressionBackground NoShow"></div>
+					<button id="mwdpExpressionForeground-8" type="button" class="ExpressionForeground NoShow">999</button>
+					<button id="mwdpExpressionOverstrike-8" type="button" class="ExpressionForeground NoShow">999</button>
 
-							<text id="mwdprDigit-1" x="578" y="203" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">1</text>
-							<text id="mwdprDigit-2" x="780" y="362" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">2</text>
-							<text id="mwdprDigit-3" x="838" y="629" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">3</text>
-							<text id="mwdprDigit-4" x="695" y="853" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">4</text>
-							<text id="mwdprDigit-5" x="448" y="948" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">5</text>
-							<text id="mwdprDigit-6" x="203" y="860" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">6</text>
-							<text id="mwdprDigit-7" x="72" y="631" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">7</text>
-							<text id="mwdprDigit-8" x="117" y="369" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">8</text>
-							<text id="mwdprDigit-9" x="322" y="200" fill="gray" font-family="Helvetica, Arial, sans-serif" font-size="180">9</text>
-						</svg>
+					<div id="mwdpExpressionBackground-9" class="ExpressionBackground NoShow"></div>
+					<button id="mwdpExpressionForeground-9" type="button" class="ExpressionForeground NoShow">999</button>
+					<button id="mwdpExpressionOverstrike-9" type="button" class="ExpressionForeground NoShow">999</button>
+
+					<button id="mwdpTargetBackground-1" type="button" class="TargetBackground NoShow">9</button>
+					<button id="mwdpTargetForeground-1" type="button" class="TargetForeground NoShow">9</button>
+						
+					<button id="mwdpTargetBackground-2" type="button" class="TargetBackground NoShow">99</button>
+					<button id="mwdpTargetForeground-2" type="button" class="TargetForeground NoShow">99</button>
+
+					<button id="mwdpTargetBackground-3" type="button" class="TargetBackground NoShow">999</button>
+					<button id="mwdpTargetForeground-3" type="button" class="TargetForeground NoShow">999</button>
+
+					<button id="mwdpTargetBackground-4" type="button" class="TargetBackground NoShow">9999</button>
+					<button id="mwdpTargetForeground-4" type="button" class="TargetForeground NoShow">9999</button>
+					
+					
+					<div id="mwdpDispensers-24" class="NoShow">
+						<div id="mwdpdContainer-24-11" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-24-12" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-24-21" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-24-22" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-24-31" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-24-32" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-24-41" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-24-42" class="DispensersContainer NoShow"></div>
+
+						<img id="mwdpdBorder-24-11" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-24-12" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-24-21" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-24-22" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-24-31" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-24-32" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-24-41" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-24-42" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+
+						<button id="mwdpdItem-24-11" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-24-12" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-24-21" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-24-22" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-24-31" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-24-32" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-24-41" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-24-42" type="button" class="DispensersItem NoShow">9</button>
+					</div>
+						
+					<div id="mwdpDispensers-25" class="NoShow">
+						<div id="mwdpdContainer-25-11" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-25-12" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-25-21" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-25-22" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-25-31" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-25-32" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-25-41" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-25-42" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-25-51" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-25-52" class="DispensersContainer NoShow"></div>
+
+						<img id="mwdpdBorder-25-11" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-25-12" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-25-21" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-25-22" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-25-31" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-25-32" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-25-41" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-25-42" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-25-51" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-25-52" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+
+						<button id="mwdpdItem-25-11" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-25-12" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-25-21" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-25-22" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-25-31" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-25-32" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-25-41" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-25-42" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-25-51" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-25-52" type="button" class="DispensersItem NoShow">9</button>
 					</div>
 
 					<div id="mwdpDispensers-33" class="NoShow">
@@ -306,17 +372,145 @@
 						<div id="mwdpdContainer-33-32" class="DispensersContainer NoShow"></div>
 						<div id="mwdpdContainer-33-33" class="DispensersContainer NoShow"></div>
 
-						<img id="mwdpdTile-33-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-33-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-33-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-33-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-33-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-33-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-33-31" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-33-32" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-33-33" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
+						<img id="mwdpdBorder-33-11" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-33-12" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-33-13" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-33-21" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-33-22" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-33-23" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-33-31" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-33-32" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-33-33" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
 
-						<img id="mwdpdCosmetic-33" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
+						<button id="mwdpdItem-33-11" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-33-12" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-33-13" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-33-21" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-33-22" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-33-23" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-33-31" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-33-32" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-33-33" type="button" class="DispensersItem NoShow">9</button>
+					</div>
+
+					<div id="mwdpDispensers-34" class="NoShow">
+						<div id="mwdpdContainer-34-11" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-12" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-13" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-21" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-22" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-23" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-31" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-32" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-33" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-41" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-42" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-34-43" class="DispensersContainer NoShow"></div>
+
+						<img id="mwdpdBorder-34-11" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-12" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-13" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-21" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-22" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-23" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-31" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-32" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-33" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-41" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-42" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-34-43" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+
+						<button id="mwdpdItem-34-11" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-12" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-13" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-21" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-22" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-23" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-31" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-32" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-33" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-41" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-42" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-34-43" type="button" class="DispensersItem NoShow">9</button>
+					</div>
+
+					<div id="mwdpDispensers-35" class="NoShow">
+						<div id="mwdpdContainer-35-11" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-12" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-13" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-21" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-22" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-23" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-31" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-32" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-33" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-41" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-42" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-43" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-51" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-52" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-35-53" class="DispensersContainer NoShow"></div>
+
+						<img id="mwdpdBorder-35-11" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-12" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-13" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-21" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-22" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-23" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-31" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-32" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-33" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-41" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-42" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-43" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-51" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-52" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-35-53" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+
+						<button id="mwdpdItem-35-11" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-12" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-13" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-21" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-22" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-23" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-31" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-32" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-33" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-41" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-42" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-43" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-51" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-52" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-35-53" type="button" class="DispensersItem NoShow">9</button>
+					</div>
+
+					<div id="mwdpDispensers-42" class="NoShow">
+						<div id="mwdpdContainer-42-11" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-42-12" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-42-13" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-42-14" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-42-21" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-42-22" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-42-23" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-42-24" class="DispensersContainer NoShow"></div>
+
+						<img id="mwdpdBorder-42-11" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-42-12" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-42-13" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-42-14" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-42-21" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-42-22" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-42-23" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-42-24" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+
+						<button id="mwdpdItem-42-11" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-42-12" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-42-13" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-42-14" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-42-21" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-42-22" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-42-23" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-42-24" type="button" class="DispensersItem NoShow">9</button>
 					</div>
 
 					<div id="mwdpDispensers-43" class="NoShow">
@@ -333,20 +527,31 @@
 						<div id="mwdpdContainer-43-33" class="DispensersContainer NoShow"></div>
 						<div id="mwdpdContainer-43-34" class="DispensersContainer NoShow"></div>
 
-						<img id="mwdpdTile-43-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-14" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-24" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-31" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-32" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-33" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-43-34" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
+						<img id="mwdpdBorder-43-11" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-12" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-13" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-14" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-21" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-22" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-23" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-24" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-31" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-32" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-33" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-43-34" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
 
-						<img id="mwdpdCosmetic-43" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
+						<button id="mwdpdItem-43-11" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-12" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-13" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-14" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-21" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-22" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-23" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-24" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-31" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-32" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-33" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-43-34" type="button" class="DispensersItem NoShow">9</button>
 					</div>
 
 					<div id="mwdpDispensers-44" class="NoShow">
@@ -367,24 +572,104 @@
 						<div id="mwdpdContainer-44-43" class="DispensersContainer NoShow"></div>
 						<div id="mwdpdContainer-44-44" class="DispensersContainer NoShow"></div>
 
-						<img id="mwdpdTile-44-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-14" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-24" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-31" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-32" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-33" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-34" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-41" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-42" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-43" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-44-44" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
+						<img id="mwdpdBorder-44-11" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-12" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-13" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-14" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-21" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-22" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-23" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-24" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-31" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-32" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-33" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-34" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-41" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-42" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-43" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-44-44" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
 
-						<img id="mwdpdCosmetic-44" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
+						<button id="mwdpdItem-44-11" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-12" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-13" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-14" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-21" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-22" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-23" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-24" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-31" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-32" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-33" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-34" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-41" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-42" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-43" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-44-44" type="button" class="DispensersItem NoShow">9</button>
+					</div>
+
+					<div id="mwdpDispensers-45" class="NoShow">
+						<div id="mwdpdContainer-45-11" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-12" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-13" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-14" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-21" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-22" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-23" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-24" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-31" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-32" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-33" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-34" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-41" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-42" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-43" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-44" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-51" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-52" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-53" class="DispensersContainer NoShow"></div>
+						<div id="mwdpdContainer-45-54" class="DispensersContainer NoShow"></div>
+
+						<img id="mwdpdBorder-45-11" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-12" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-13" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-14" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-21" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-22" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-23" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-24" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-31" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-32" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-33" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-34" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-41" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-42" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-43" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-44" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-51" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-52" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-53" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-45-54" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+
+						<button id="mwdpdItem-45-11" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-12" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-13" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-14" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-21" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-22" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-23" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-24" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-31" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-32" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-33" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-34" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-41" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-42" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-43" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-44" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-51" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-52" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-53" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-45-54" type="button" class="DispensersItem NoShow">9</button>
 					</div>
 
 					<div id="mwdpDispensers-52" class="NoShow">
@@ -398,309 +683,28 @@
 						<div id="mwdpdContainer-52-23" class="DispensersContainer NoShow"></div>
 						<div id="mwdpdContainer-52-24" class="DispensersContainer NoShow"></div>
 						<div id="mwdpdContainer-52-25" class="DispensersContainer NoShow"></div>
-						
-						<img id="mwdpdTile-52-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-52-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-52-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-52-14" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-52-15" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-52-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-52-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-52-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-52-24" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-52-25" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
 
-						<img id="mwdpdCosmetic-52" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
-					</div>
+						<img id="mwdpdBorder-52-11" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-52-12" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-52-13" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-52-14" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-52-15" class="DispensersBorder5 NoShow" src="dispenserBorder5.svg" alt="Border"/>
+						<img id="mwdpdBorder-52-21" class="DispensersBorder1 NoShow" src="dispenserBorder1.svg" alt="Border"/>
+						<img id="mwdpdBorder-52-22" class="DispensersBorder2 NoShow" src="dispenserBorder2.svg" alt="Border"/>
+						<img id="mwdpdBorder-52-23" class="DispensersBorder3 NoShow" src="dispenserBorder3.svg" alt="Border"/>
+						<img id="mwdpdBorder-52-24" class="DispensersBorder4 NoShow" src="dispenserBorder4.svg" alt="Border"/>
+						<img id="mwdpdBorder-52-25" class="DispensersBorder5 NoShow" src="dispenserBorder5.svg" alt="Border"/>
 
-					<div id="mwdpDispensers-53" class="NoShow">
-						<div id="mwdpdContainer-53-11" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-12" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-13" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-14" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-15" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-21" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-22" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-23" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-24" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-25" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-31" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-32" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-33" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-34" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-53-35" class="DispensersContainer NoShow"></div>
-
-						<img id="mwdpdTile-53-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-14" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-15" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-24" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-25" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-31" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-32" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-33" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-34" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-53-35" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-
-						<img id="mwdpdCosmetic-53" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
-					</div>
-
-					<div id="mwdpDispensers-54" class="NoShow">
-						<div id="mwdpdContainer-54-11" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-12" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-13" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-14" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-15" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-21" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-22" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-23" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-24" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-25" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-31" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-32" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-33" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-34" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-35" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-41" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-42" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-43" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-44" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-54-45" class="DispensersContainer NoShow"></div>
-
-						<img id="mwdpdTile-54-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-14" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-15" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-24" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-25" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-31" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-32" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-33" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-34" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-35" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-41" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-42" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-43" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-44" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-54-45" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-
-						<img id="mwdpdCosmetic-54" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
-					</div>
-
-					<div id="mwdpDispensers-62" class="NoShow">
-						<div id="mwdpdContainer-62-11" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-12" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-13" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-14" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-15" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-16" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-21" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-22" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-23" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-24" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-25" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-62-26" class="DispensersContainer NoShow"></div>
-
-						<img id="mwdpdTile-62-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-14" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-15" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-16" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-24" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-25" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-62-26" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-
-						<img id="mwdpdCosmetic-62" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
-					</div>
-
-					<div id="mwdpDispensers-63" class="NoShow">
-						<div id="mwdpdContainer-63-11" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-12" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-13" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-14" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-15" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-16" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-21" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-22" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-23" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-24" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-25" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-26" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-31" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-32" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-33" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-34" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-35" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-63-36" class="DispensersContainer NoShow"></div>
-
-						<img id="mwdpdTile-63-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-14" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-15" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-16" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-24" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-25" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-26" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-31" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-32" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-33" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-34" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-35" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-63-36" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-
-						<img id="mwdpdCosmetic-63" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
-					</div>
-
-					<div id="mwdpDispensers-64" class="NoShow">
-						<div id="mwdpdContainer-64-11" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-12" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-13" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-14" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-15" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-16" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-21" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-22" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-23" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-24" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-25" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-26" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-31" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-32" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-33" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-34" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-35" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-36" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-41" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-42" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-43" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-44" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-45" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-64-46" class="DispensersContainer NoShow"></div>
-
-						<img id="mwdpdTile-64-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-14" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-15" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-16" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-24" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-25" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-26" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-31" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-32" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-33" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-34" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-35" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-36" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-41" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-42" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-43" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-44" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-45" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-64-46" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-
-						<img id="mwdpdCosmetic-64" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
-					</div>
-
-					<div id="mwdpDispensers-72" class="NoShow">
-						<div id="mwdpdContainer-72-11" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-12" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-13" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-14" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-15" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-16" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-17" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-21" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-22" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-23" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-24" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-25" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-26" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-72-27" class="DispensersContainer NoShow"></div>
-
-						<img id="mwdpdTile-72-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-14" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-15" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-16" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-17" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-24" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-25" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-26" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-72-27" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-
-						<img id="mwdpdCosmetic-72" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
-					</div>
-
-					<div id="mwdpDispensers-73" class="NoShow">
-						<div id="mwdpdContainer-73-11" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-12" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-13" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-14" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-15" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-16" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-17" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-21" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-22" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-23" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-24" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-25" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-26" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-27" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-31" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-32" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-33" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-34" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-35" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-36" class="DispensersContainer NoShow"></div>
-						<div id="mwdpdContainer-73-37" class="DispensersContainer NoShow"></div>
-						
-						<img id="mwdpdTile-73-11" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-12" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-13" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-14" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-15" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-16" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-17" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-21" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-22" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-23" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-24" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-25" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-26" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-27" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-31" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-32" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-33" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-34" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-35" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-36" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-						<img id="mwdpdTile-73-37" class="DispensersTile NoShow" src="tileBlack.svg" alt="blac"/>
-
-						<img id="mwdpdCosmetic-73" class="DispensersCosmetic" src="dispensersCosmetic.svg" alt="Cosmetic"/>
+						<button id="mwdpdItem-52-11" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-52-12" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-52-13" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-52-14" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-52-15" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-52-21" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-52-22" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-52-23" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-52-24" type="button" class="DispensersItem NoShow">9</button>
+						<button id="mwdpdItem-52-25" type="button" class="DispensersItem NoShow">9</button>
 					</div>
 				</div>
 			</div>
