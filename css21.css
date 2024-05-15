@@ -192,7 +192,8 @@ body {
 
 #iwSurroundInstructions {
 	width:59em;
-	height:56em;
+/*	height:56em; */
+	height:57em;
 	grid-row:riwSurroundInstructions-s/riwSurroundInstructions-e;
 	grid-column:ciwSurroundInstructions-s/ciwSurroundInstructions-e;
 }
