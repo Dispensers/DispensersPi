@@ -1,4 +1,57 @@
 let puzzleSpecs = [
+/*
+	{
+		number: 19,
+		publishedOn: "dd Mmm 24",
+		dispenserSpec: [undefined, "1-", "/8", "91", "*2"],
+		targetSpec: "5",
+		hintSpec: {numDots: 8, symbol:"1", isHere: true},
+		solutionExpression: "8/12*9-1",
+		solutionDispenseSequence: [2, 2, 3, 4, 4, 3, 1, 1]
+	},
+
+	{
+		number: 24,
+		publishedOn: "dd Mmm 24",
+		dispenserSpec: [undefined, "/6", "8", "+", "4", "0/2"],
+		targetSpec: "8",
+		hintSpec: {numDots: 8, symbol:"1", isHere: true},
+		solutionExpression: "2/4+60/8",
+		solutionDispenseSequence: [5, 5, 4, 3, 1, 5, 1, 2]
+	},
+
+	{
+		number: 20,
+		publishedOn: "dd Mmm 24",
+		dispenserSpec: [undefined, "*2", "54", "8", "7/"],
+		targetSpec: "6",
+		hintSpec: {numDots: 8, symbol:"1", isHere: true},
+		solutionExpression: "4/52*78",
+		solutionDispenseSequence: [2, 4, 2, 1, 1, 4, 3]
+	},
+
+	{
+		number: 18,
+		publishedOn: "dd Mmm 24",
+		dispenserSpec: [undefined, "4*71", "-3", "56"],
+		targetSpec: "88",
+		hintSpec: {numDots: 8, symbol:"1", isHere: true},
+		solutionExpression: "316-57*4",
+		solutionDispenseSequence: [2, 1, 3, 2, 3, 1, 1, 1]
+	},
+*/
+	{
+		number: 21,
+		publishedOn: "6 Jun 24",
+		dispenserSpec: [undefined, "88/", "2", "*61", "4"],
+		targetSpec: "21",
+		hintSpec: {numDots: 5, symbol:"8", isHere: true},
+		solutionExpression: "126/48*8",
+		solutionDispenseSequence: [3, 2, 3, 1, 4, 1, 3, 1]
+	},
+
+/* =============================================================== */
+
 	{
 		number: 16,
 		publishedOn: "20 Mar 24",
