@@ -19,17 +19,16 @@ let puzzleSpecs = [
 		solutionExpression: "2/4+60/8",
 		solutionDispenseSequence: [5, 5, 4, 3, 1, 5, 1, 2]
 	},
-
+*/
 	{
 		number: 20,
-		publishedOn: "dd Mmm 24",
+		publishedOn: "27 Jun 24",
 		dispenserSpec: [undefined, "*2", "54", "8", "7/"],
 		targetSpec: "6",
-		hintSpec: {numDots: 8, symbol:"1", isHere: true},
+		hintSpec: {numDots: 0, symbol:"8", isHere: false},
 		solutionExpression: "4/52*78",
 		solutionDispenseSequence: [2, 4, 2, 1, 1, 4, 3]
 	},
-*/
 	{
 		number: 18,
 		publishedOn: "18 Jun 24",
