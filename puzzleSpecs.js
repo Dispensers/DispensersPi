@@ -1,15 +1,13 @@
 let puzzleSpecs = [
-/*
 	{
 		number: 19,
-		publishedOn: "dd Mmm 24",
+		publishedOn: "18 Jul 24",
 		dispenserSpec: [undefined, "1-", "/8", "91", "*2"],
 		targetSpec: "5",
-		hintSpec: {numDots: 8, symbol:"1", isHere: true},
+		hintSpec: {numDots: 4, symbol:"*", isHere: true},
 		solutionExpression: "8/12*9-1",
 		solutionDispenseSequence: [2, 2, 3, 4, 4, 3, 1, 1]
 	},
-*/
 	{
 		number: 24,
 		publishedOn: "9 Jul 24",
